@@ -1,11 +1,12 @@
 import { useState } from "react";
-import "./LoginPage.css";
-import { Link } from "react-router-dom";
 import axios from "axios";
-function LoginPage() {
+import "./RegisterPage.css";
+
+function RegisterPage() {
   const [values, setValues] = useState({
     userId: "",
     userpassword: "",
+    nickname: "",
   });
 
   const handleChange = (name, value) => {
@@ -25,27 +26,29 @@ function LoginPage() {
     const data = {
       userId: values.userId,
       userpassword: values.userpassword,
+      nickname: values.nickname,
     };
 
-    axios
-      .post(`http://localhost:5000/${values.userId}/verify`, {
-        userpassword: values.userpassword,
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
+    axios.post("http://localhost:5000/user", data).then((res) => {
+      console.log(res.data);
+    });
   };
 
   return (
     <>
-      <div className="logo">ClawClash</div>
-      <form className="LoginBox" onSubmit={handleSubmit}>
-        <div className="LoginLetter">로그인</div>
-        <div className="LoginForm">
+      <div>
+        <div className="RegisterLetter">ClawClash 회원가입</div>
+        <form className="RegisterBox" onSubmit={handleSubmit}>
           <div>아이디</div>
           <input
             value={values.userId}
             name="userId"
+            onChange={handleInputChange}
+          />
+          <div>닉네임</div>
+          <input
+            value={values.nickname}
+            name="nickname"
             onChange={handleInputChange}
           />
           <div>비밀번호</div>
@@ -54,14 +57,11 @@ function LoginPage() {
             name="userpassword"
             onChange={handleInputChange}
           />
-        </div>
-        <button className="LoginButton">로그인</button>
-        <Link to="/Register">
-          <div>회원가입</div>
-        </Link>
-      </form>
+          <button>회원가입하기</button>
+        </form>
+      </div>
     </>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,0 +1,15 @@
+.RegisterLetter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  font-size: 30px;
+}
+.RegisterBox {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
