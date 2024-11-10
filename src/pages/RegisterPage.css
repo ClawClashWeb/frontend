@@ -1,15 +1,29 @@
+.RegisterPage {
+  background: linear-gradient(black 70%, white);
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  color: white;
+}
+
 .RegisterLetter {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   font-size: 30px;
 }
+
 .RegisterBox {
   display: flex;
   margin-top: auto;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.BoxLetter {
+  display: flex;
+  width: 410px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }

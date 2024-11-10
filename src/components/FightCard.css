@@ -1,0 +1,30 @@
+.fightCard {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px auto;
+  width: 70%;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.versusBox {
+  display: flex;
+}
+
+.versus {
+  margin-left: 10px;
+  font-size: 19px;
+}
+.win {
+  border-color: blue;
+}
+
+.lose {
+  border-color: red;
+}
+.blue {
+  color: blue;
+}
+.red {
+  color: red;
+}

@@ -1,0 +1,7 @@
+.title {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}

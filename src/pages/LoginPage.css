@@ -1,15 +1,24 @@
+.LoginPage {
+  background: linear-gradient(black 70%, white);
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
 input {
   width: 400px;
   height: 45px;
   margin-bottom: 10px;
+  padding-left: 10px;
 }
 
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 100px;
+.logoimg {
+  width: 400px;
+  height: 160px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 .LoginBox {
   display: flex;
   gap: 20px;
@@ -19,13 +28,20 @@ input {
 }
 .LoginLetter {
   font-size: 30px;
+  color: white;
 }
 .LoginForm {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: white;
 }
+
+input::placeholder {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
 .LoginButton {
   width: 410px;
   height: 45px;
@@ -33,4 +49,11 @@ input {
   background-color: #282828;
   border-radius: 6px;
   cursor: pointer;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+.LoginButton:hover {
+  border: none;
+  color: black;
+  background-color: lightblue;
 }
