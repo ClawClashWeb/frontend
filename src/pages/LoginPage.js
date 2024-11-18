@@ -21,21 +21,19 @@ function LoginPage() {
     const { name, value } = e.target;
     handleChange(name, value);
   };
-
+  const testurl = `http://localhost:5000/${values.userId}/verify`;
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       userId: values.userId,
       userpassword: values.userpassword,
     };
+    //const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${values.userId}/verify`,
 
     axios
-      .post(
-        `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${values.userId}/verify`,
-        {
-          userpassword: values.userpassword,
-        }
-      )
+      .post(testurl, {
+        userpassword: values.userpassword,
+      })
       .then((res) => {
         if (res.data.success === true) {
           navigate("/Main", { state: values.userId });

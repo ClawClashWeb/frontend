@@ -1,0 +1,29 @@
+.usercard {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  font-size: large;
+  padding: 20px;
+}
+.profile {
+  position: absolute;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 171px;
+}
+.nickname {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+.gamecount {
+  display: flex;
+  flex-direction: row;
+}
+.winlose {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
+}

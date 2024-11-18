@@ -1,3 +1,16 @@
+
+.MainHeader {
+  background: linear-gradient(black 70%, white);
+  height: 100px;
+}
+
+.HeaderImg {
+  position: absolute;
+  left: 60px;
+  top: 16px;
+  width: 160px;
+}
+
 .title {
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: 20px;
