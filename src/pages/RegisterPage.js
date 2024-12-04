@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegisterPage.css";
 import logo from "./logo.png";
@@ -10,7 +10,7 @@ function RegisterPage() {
     userpassword: "",
     nickname: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
@@ -38,6 +38,8 @@ function RegisterPage() {
       )
       .then((res) => {
         console.log(res.data);
+        alert("회원가입이 완료되었습니다");
+        navigate("/");
       });
   };
 

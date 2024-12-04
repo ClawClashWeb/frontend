@@ -9,14 +9,14 @@ import logo from "./logo.png";
 function MainPage() {
   const location = useLocation();
   const userId = location.state;
-  //const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${userId}/gameRecord`;
-  const testurl = "http://localhost:5000/gjtjdwl/gameRecord";
+  const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${userId}/gameRecord`;
+  //const testurl = "http://localhost:5000/gjtjdwl/gameRecord";
   const [values, setValues] = useState("");
   const [user, setUser] = useState("");
   useEffect(() => {
     const handleLoad = async () => {
       axios
-        .get(testurl)
+        .get(url)
         .then((res) => {
           console.log(res.data);
           setUser(res.data.userinfo);
@@ -27,7 +27,7 @@ function MainPage() {
         });
     };
     handleLoad();
-  }, [testurl]);
+  }, [url]);
 
   return (
     <>
@@ -45,7 +45,15 @@ function MainPage() {
 
         <div>
           {values.length === 0 ? (
-            <div>전적이 없습니다.</div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              전적이 없습니다.
+            </div>
           ) : (
             <FightCard items={values} />
           )}
