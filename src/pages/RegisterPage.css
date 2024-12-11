@@ -27,3 +27,13 @@
   margin-bottom: 10px;
   justify-content: space-between;
 }
+
+.RegisterButton {
+  width: 410px;
+  height: 45px;
+  color: #fff;
+  background-color: #282828;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}

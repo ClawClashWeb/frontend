@@ -9,8 +9,8 @@ import logo from "./logo.png";
 function MainPage() {
   const location = useLocation();
   const userId = location.state;
-  const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${userId}/gameRecord`;
-  //const testurl = "http://localhost:5000/gjtjdwl/gameRecord";
+  //const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${userId}/gameRecord`;
+  const url = `http://localhost:5000/${userId}/gameRecord`;
   const [values, setValues] = useState("");
   const [user, setUser] = useState("");
   useEffect(() => {
@@ -38,7 +38,7 @@ function MainPage() {
           </Link>
         </div>
         <div>
-          <UserCard userinfo={user} />
+          <UserCard userinfo={user} userId={userId} />
         </div>
         <hr style={{ width: "70%" }} />
         <div className="title"> 나의 전적</div>

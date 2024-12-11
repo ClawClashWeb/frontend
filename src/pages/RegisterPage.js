@@ -10,7 +10,9 @@ function RegisterPage() {
     userpassword: "",
     nickname: "",
   });
+  const [isValid, setIsValid] = useState(true);
   const navigate = useNavigate();
+
   const handleChange = (name, value) => {
     setValues((prevValues) => ({
       ...prevValues,
@@ -20,20 +22,31 @@ function RegisterPage() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    const regex = /^[A-Za-z0-9]*$/;
+    if (regex.test(value)) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
     handleChange(name, value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (values.userId === ''|| values.nickname === ''|| values.userpassword === '')
+    {
+      return alert("빈 칸을 채워주세요.")
+    }
     const data = {
       userId: values.userId,
       userpassword: values.userpassword,
       nickname: values.nickname,
     };
-
+    //const url = "http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/user";
+    const url = `http://localhost:5000/user`;
     axios
       .post(
-        "http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/user",
+        url,
         data
       )
       .then((res) => {
@@ -42,7 +55,7 @@ function RegisterPage() {
         navigate("/");
       });
   };
-
+  const struct = isValid ? "LoginButton" : "RegisterButton";
   return (
     <>
       <div className="RegisterPage">
@@ -60,11 +73,13 @@ function RegisterPage() {
             name="userId"
             onChange={handleInputChange}
           />
+          {!isValid && <div className="BoxLetter" style={{marginTop:"1px", color: 'red' }}>영어와 숫자만 입력 가능합니다.</div>}
           <div className="BoxLetter">닉네임</div>
           <input
             value={values.nickname}
             name="nickname"
             onChange={handleInputChange}
+            autoComplete="off"
           />
           <div className="BoxLetter">비밀번호</div>
           <input
@@ -73,7 +88,8 @@ function RegisterPage() {
             name="userpassword"
             onChange={handleInputChange}
           />
-          <button className="LoginButton" style={{ margin: "50px auto" }}>
+          <button className={struct} style={{ margin: "50px auto" }} 
+            disabled={!isValid}>
             회원가입하기
           </button>
         </form>

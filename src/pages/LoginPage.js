@@ -21,14 +21,14 @@ function LoginPage() {
     const { name, value } = e.target;
     handleChange(name, value);
   };
-  //const testurl = `http://localhost:5000/${values.userId}/verify`;
+  const url = `http://localhost:5000/${values.userId}/verify`;
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       userId: values.userId,
       userpassword: values.userpassword,
     };
-    const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${values.userId}/verify`;
+    //const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${values.userId}/verify`;
 
     axios
       .post(url, {
@@ -40,7 +40,7 @@ function LoginPage() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        alert("비밀번호가 틀렸습니다");
       });
   };
 
