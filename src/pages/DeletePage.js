@@ -24,6 +24,7 @@ function DeletePage(){
             if (res.data.success === true) {
               alert("회원 탈퇴가 완료되었습니다.")
               axios.delete(`http://localhost:5000/user/${userId}`)
+              navigate("/")
             }
           })
           .catch((err) => {
@@ -64,6 +65,7 @@ function DeletePage(){
               value={userpassword}
               onChange={handleChange}
               placeholder="비밀번호를 입력 해 주세요."
+              type="password"
             />
             <button className="LoginButton" style={{ margin: "10px" }}>
               제출하기

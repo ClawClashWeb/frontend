@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LoginPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import logo from "./logo.png";
+import logo from "../assets/logo.png";
 
 function LoginPage() {
   const [values, setValues] = useState({

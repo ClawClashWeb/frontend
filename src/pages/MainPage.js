@@ -4,15 +4,15 @@ import axios from "axios";
 import FightCard from "../components/Fightcard.js";
 import UserCard from "../components/UserCard.js";
 import "./MainPage.css";
-import logo from "./logo.png";
+import logo from "../assets/logo.png";
 
 function MainPage() {
   const location = useLocation();
   const userId = location.state;
   //const url = `http://ec2-13-125-230-55.ap-northeast-2.compute.amazonaws.com:5000/${userId}/gameRecord`;
-  const url = `http://localhost:5000/${userId}/gameRecord`;
   const [values, setValues] = useState("");
   const [user, setUser] = useState("");
+  const url = `http://localhost:5000/${userId}/gameRecord`;
   useEffect(() => {
     const handleLoad = async () => {
       axios

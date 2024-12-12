@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegisterPage.css";
-import logo from "./logo.png";
+import logo from "../assets/logo.png";
 
 function RegisterPage() {
   const [values, setValues] = useState({
@@ -10,7 +10,9 @@ function RegisterPage() {
     userpassword: "",
     nickname: "",
   });
-  const [isValid, setIsValid] = useState(true);
+  const [idisValid, setidIsValid] = useState(true);
+  const [pwisValid, setpwIsValid] = useState(true);
+
   const navigate = useNavigate();
 
   const handleChange = (name, value) => {
@@ -20,14 +22,28 @@ function RegisterPage() {
     }));
   };
 
-  const handleInputChange = (e) => {
+  const handleInputIDChange = (e) => {
     const { name, value } = e.target;
     const regex = /^[A-Za-z0-9]*$/;
     if (regex.test(value)) {
-      setIsValid(true);
+      setidIsValid(true)
     } else {
-      setIsValid(false);
+      setidIsValid(false)
     }
+    handleChange(name, value);
+  };
+  const handleInputPWChange = (e) => {
+    const { name, value } = e.target;
+    const l = e.target.value.length;
+    if (l>=4) {
+      setpwIsValid(true);
+    } else {
+      setpwIsValid(false);
+    }
+    handleChange(name, value);
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
     handleChange(name, value);
   };
 
@@ -55,7 +71,7 @@ function RegisterPage() {
         navigate("/");
       });
   };
-  const struct = isValid ? "LoginButton" : "RegisterButton";
+  const idok = idisValid ? "LoginButton" : "RegisterButton";
   return (
     <>
       <div className="RegisterPage">
@@ -71,9 +87,9 @@ function RegisterPage() {
           <input
             value={values.userId}
             name="userId"
-            onChange={handleInputChange}
+            onChange={handleInputIDChange}
           />
-          {!isValid && <div className="BoxLetter" style={{marginTop:"1px", color: 'red' }}>영어와 숫자만 입력 가능합니다.</div>}
+          {!idisValid && <div className="BoxLetter" style={{marginTop:"1px", color: 'red' }}>영어와 숫자만 입력 가능합니다.</div>}
           <div className="BoxLetter">닉네임</div>
           <input
             value={values.nickname}
@@ -86,10 +102,12 @@ function RegisterPage() {
             type="password"
             value={values.userpassword}
             name="userpassword"
-            onChange={handleInputChange}
+            onChange={handleInputPWChange}
           />
-          <button className={struct} style={{ margin: "50px auto" }} 
-            disabled={!isValid}>
+          {!pwisValid && <div className="BoxLetter" style={{marginTop:"1px", color: 'red' }}>비밀번호는 4자리 이상 입력해 주세요.</div>}
+
+          <button className={idok}  style={{ margin: "50px auto" }} 
+            disabled={!idisValid || !pwisValid}>
             회원가입하기
           </button>
         </form>

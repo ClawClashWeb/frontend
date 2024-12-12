@@ -31,7 +31,6 @@
   margin-bottom: 20px;
 }
 
-
 .delete{
   position: absolute;
   top: 170px;
@@ -41,3 +40,14 @@
   color:gray;
   cursor: pointer;
 } 
+.good{
+  color:blue;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: larger;
+}
+
+.bad{
+  color:red;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: larger;
+}
